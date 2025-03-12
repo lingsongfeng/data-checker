@@ -1,0 +1,223 @@
+{
+  "instruction": "Open Ebay. Search for \"iPhone 12\". Sort by \"Most Bids\" and select the fourth item. Check the return policy.",
+  "episode_id": "065196ff2bce483f9760d11485d59f7c",
+  "steps": [
+    {
+      "step_id": 1,
+      "action": "SWIPE",
+      "touch_coord": [
+        758,
+        1774
+      ],
+      "lift_coord": [
+        746,
+        942
+      ],
+      "device_dim": [
+        1440,
+        2960
+      ],
+      "package_name": "com.android.launcher3",
+      "type_text": "",
+      "need_human_check": false,
+      "interest_region": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "image_path": "2024_4_2_15_16_065196ff2bce483f9760d11485d59f7c-1.png",
+      "low-level_instruction": "Open the app drawer."
+    },
+    {
+      "step_id": 2,
+      "action": "TAP",
+      "touch_coord": [
+        703,
+        1492
+      ],
+      "lift_coord": [
+        703,
+        1492
+      ],
+      "device_dim": [
+        1440,
+        2960
+      ],
+      "package_name": "com.android.launcher3",
+      "type_text": "",
+      "need_human_check": false,
+      "interest_region": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "image_path": "2024_4_2_15_16_065196ff2bce483f9760d11485d59f7c-2.png",
+      "low-level_instruction": "Open the eBay app."
+    },
+    {
+      "step_id": 3,
+      "action": "TAP",
+      "touch_coord": [
+        539,
+        346
+      ],
+      "lift_coord": [
+        539,
+        346
+      ],
+      "device_dim": [
+        1440,
+        2960
+      ],
+      "package_name": "com.ebay.mobile",
+      "type_text": "",
+      "need_human_check": false,
+      "interest_region": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "image_path": "2024_4_2_15_16_065196ff2bce483f9760d11485d59f7c-3.png",
+      "low-level_instruction": "Access the search bar on eBay."
+    },
+    {
+      "step_id": 4,
+      "action": "TYPE",
+      "touch_coord": [
+        0,
+        0
+      ],
+      "lift_coord": [
+        0,
+        0
+      ],
+      "device_dim": [
+        1440,
+        2960
+      ],
+      "package_name": "com.ebay.mobile",
+      "type_text": "iPhone 12",
+      "need_human_check": false,
+      "interest_region": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "image_path": "2024_4_2_15_16_065196ff2bce483f9760d11485d59f7c-4.png",
+      "low-level_instruction": "Search for \"iPhone 12\" on eBay."
+    },
+    {
+      "step_id": 5,
+      "action": "PRESS_ENTER",
+      "touch_coord": [
+        0,
+        0
+      ],
+      "lift_coord": [
+        0,
+        0
+      ],
+      "device_dim": [
+        1440,
+        2960
+      ],
+      "package_name": "com.ebay.mobile",
+      "type_text": "",
+      "need_human_check": false,
+      "interest_region": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "image_path": "2024_4_2_15_16_065196ff2bce483f9760d11485d59f7c-5.png",
+      "low-level_instruction": "Search for \"iPhone 12\" on eBay."
+    },
+    {
+      "step_id": 6,
+      "action": "TAP",
+      "touch_coord": [
+        1012,
+        334
+      ],
+      "lift_coord": [
+        1012,
+        334
+      ],
+      "device_dim": [
+        1440,
+        2960
+      ],
+      "package_name": "com.ebay.mobile",
+      "type_text": "",
+      "need_human_check": false,
+      "interest_region": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "image_path": "2024_4_2_15_16_065196ff2bce483f9760d11485d59f7c-6.png",
+      "low-level_instruction": "Open the sort menu."
+    },
+    {
+      "step_id": 7,
+      "action": "TASK_IMPOSSIBLE",
+      "touch_coord": [
+        0,
+        0
+      ],
+      "lift_coord": [
+        0,
+        0
+      ],
+      "device_dim": [
+        1440,
+        2960
+      ],
+      "package_name": "com.ebay.mobile",
+      "type_text": "",
+      "need_human_check": false,
+      "interest_region": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "image_path": "2024_4_2_15_16_065196ff2bce483f9760d11485d59f7c-7.png",
+      "low-level_instruction": null
+    }
+  ]
+}

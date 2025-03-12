@@ -1,0 +1,378 @@
+{
+    "instruction": "Open Ebay. Search \"Samsung Galaxy Watch\". Filter by \"Authenticity Guarantee\". Check the details of the first item and review the seller\"s rating.",
+    "episode_id": "5d17082f02d544febe3937cb5b677986",
+    "steps": [
+        {
+            "step_id": 1,
+            "action": "SWIPE",
+            "touch_coord": [
+                733,
+                2063
+            ],
+            "lift_coord": [
+                639,
+                967
+            ],
+            "device_dim": [
+                1440,
+                2960
+            ],
+            "package_name": "com.android.launcher3",
+            "type_text": "",
+            "need_human_check": false,
+            "interest_region": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ],
+            "image_path": "2024_4_2_15_21_5d17082f02d544febe3937cb5b677986-1.png",
+            "low-level_instruction": "Open the app drawer."
+        },
+        {
+            "step_id": 2,
+            "action": "TAP",
+            "touch_coord": [
+                762,
+                1511
+            ],
+            "lift_coord": [
+                762,
+                1511
+            ],
+            "device_dim": [
+                1440,
+                2960
+            ],
+            "package_name": "com.android.launcher3",
+            "type_text": "",
+            "need_human_check": false,
+            "interest_region": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ],
+            "image_path": "2024_4_2_15_21_5d17082f02d544febe3937cb5b677986-2.png",
+            "low-level_instruction": "Open the eBay app."
+        },
+        {
+            "step_id": 3,
+            "action": "TAP",
+            "touch_coord": [
+                528,
+                323
+            ],
+            "lift_coord": [
+                528,
+                323
+            ],
+            "device_dim": [
+                1440,
+                2960
+            ],
+            "package_name": "com.ebay.mobile",
+            "type_text": "",
+            "need_human_check": false,
+            "interest_region": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ],
+            "image_path": "2024_4_2_15_21_5d17082f02d544febe3937cb5b677986-3.png",
+            "low-level_instruction": "Access the eBay search bar."
+        },
+        {
+            "step_id": 4,
+            "action": "TYPE",
+            "touch_coord": [
+                0,
+                0
+            ],
+            "lift_coord": [
+                0,
+                0
+            ],
+            "device_dim": [
+                1440,
+                2960
+            ],
+            "package_name": "com.ebay.mobile",
+            "type_text": "Samsung Galaxy Watch",
+            "need_human_check": false,
+            "interest_region": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ],
+            "image_path": "2024_4_2_15_21_5d17082f02d544febe3937cb5b677986-4.png",
+            "low-level_instruction": "Search for \"Samsung Galaxy Watch\" on eBay."
+        },
+        {
+            "step_id": 5,
+            "action": "PRESS_ENTER",
+            "touch_coord": [
+                0,
+                0
+            ],
+            "lift_coord": [
+                0,
+                0
+            ],
+            "device_dim": [
+                1440,
+                2960
+            ],
+            "package_name": "com.ebay.mobile",
+            "type_text": "",
+            "need_human_check": false,
+            "interest_region": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ],
+            "image_path": "2024_4_2_15_21_5d17082f02d544febe3937cb5b677986-5.png",
+            "low-level_instruction": "Search for \"samsung galaxy watch\" on eBay."
+        },
+        {
+            "step_id": 6,
+            "action": "TAP",
+            "touch_coord": [
+                1281,
+                332
+            ],
+            "lift_coord": [
+                1281,
+                332
+            ],
+            "device_dim": [
+                1440,
+                2960
+            ],
+            "package_name": "com.ebay.mobile",
+            "type_text": "",
+            "need_human_check": false,
+            "interest_region": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ],
+            "image_path": "2024_4_2_15_21_5d17082f02d544febe3937cb5b677986-6.png",
+            "low-level_instruction": "Open the filter menu to refine search results for Samsung Galaxy Watches."
+        },
+        {
+            "step_id": 7,
+            "action": "TAP",
+            "touch_coord": [
+                803,
+                2273
+            ],
+            "lift_coord": [
+                803,
+                2273
+            ],
+            "device_dim": [
+                1440,
+                2960
+            ],
+            "package_name": "com.ebay.mobile",
+            "type_text": "",
+            "need_human_check": false,
+            "interest_region": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ],
+            "image_path": "2024_4_2_15_21_5d17082f02d544febe3937cb5b677986-7.png",
+            "low-level_instruction": "Show more filter options."
+        },
+        {
+            "step_id": 8,
+            "action": "SWIPE",
+            "touch_coord": [
+                801,
+                2584
+            ],
+            "lift_coord": [
+                801,
+                287
+            ],
+            "device_dim": [
+                1440,
+                2960
+            ],
+            "package_name": "com.ebay.mobile",
+            "type_text": "",
+            "need_human_check": false,
+            "interest_region": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ],
+            "image_path": "2024_4_2_15_21_5d17082f02d544febe3937cb5b677986-8.png",
+            "low-level_instruction": "Scroll up to view more filter options."
+        },
+        {
+            "step_id": 9,
+            "action": "SWIPE",
+            "touch_coord": [
+                723,
+                2500
+            ],
+            "lift_coord": [
+                726,
+                805
+            ],
+            "device_dim": [
+                1440,
+                2960
+            ],
+            "package_name": "com.ebay.mobile",
+            "type_text": "",
+            "need_human_check": false,
+            "interest_region": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ],
+            "image_path": "2024_4_2_15_21_5d17082f02d544febe3937cb5b677986-9.png",
+            "low-level_instruction": "Scroll up the filter options to view more filter criteria."
+        },
+        {
+            "step_id": 10,
+            "action": "TAP",
+            "touch_coord": [
+                1319,
+                2025
+            ],
+            "lift_coord": [
+                1319,
+                2025
+            ],
+            "device_dim": [
+                1440,
+                2960
+            ],
+            "package_name": "com.ebay.mobile",
+            "type_text": "",
+            "need_human_check": false,
+            "interest_region": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ],
+            "image_path": "2024_4_2_15_21_5d17082f02d544febe3937cb5b677986-10.png",
+            "low-level_instruction": "Enable the Authenticity Guarantee filter."
+        },
+        {
+            "step_id": 11,
+            "action": "TAP",
+            "touch_coord": [
+                330,
+                166
+            ],
+            "lift_coord": [
+                330,
+                166
+            ],
+            "device_dim": [
+                1440,
+                2960
+            ],
+            "package_name": "com.ebay.mobile",
+            "type_text": "",
+            "need_human_check": false,
+            "interest_region": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ],
+            "image_path": "2024_4_2_15_21_5d17082f02d544febe3937cb5b677986-11.png",
+            "low-level_instruction": "Close the filter menu."
+        },
+        {
+            "step_id": 12,
+            "action": "TASK_IMPOSSIBLE",
+            "touch_coord": [
+                0,
+                0
+            ],
+            "lift_coord": [
+                0,
+                0
+            ],
+            "device_dim": [
+                1440,
+                2960
+            ],
+            "package_name": "com.ebay.mobile",
+            "type_text": "",
+            "need_human_check": false,
+            "interest_region": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    0
+                ]
+            ],
+            "image_path": "2024_4_2_15_21_5d17082f02d544febe3937cb5b677986-12.png",
+            "low-level_instruction": null
+        }
+    ]
+}
