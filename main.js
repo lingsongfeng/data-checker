@@ -59,6 +59,31 @@ ipcMain.on('mark-finished', async (event, data) => {
     }
 });
 
+ipcMain.on('update-json', async (event, data) => {
+    try {
+        const { path: folderPath, stepId, instruction } = data;
+        const files = fs.readdirSync(folderPath);
+        const jsonFiles = files.filter(file => file.endsWith('.json'));
+
+        // Find and update the JSON file containing the step
+        for (const file of jsonFiles) {
+            const filePath = path.join(folderPath, file);
+            const jsonContent = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+            if (jsonContent.steps) {
+                const step = jsonContent.steps.find(s => s.step_id === stepId);
+                if (step) {
+                    step['low-level_instruction'] = instruction;
+                    fs.writeFileSync(filePath, JSON.stringify(jsonContent, null, 2));
+                    break;
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error updating JSON:', error);
+    }
+});
+
 function handleFolderSelection(folderPath) {
     try {
         const files = fs.readdirSync(folderPath);
