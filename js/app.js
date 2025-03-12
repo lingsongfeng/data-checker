@@ -1,0 +1,151 @@
+const { ipcRenderer } = require('electron');
+
+class DataChecker {
+    constructor() {
+        this.initializeEventListeners();
+    }
+
+    initializeEventListeners() {
+        document.getElementById('select-folder').addEventListener('click', () => {
+            ipcRenderer.send('select-folder');
+        });
+
+        document.getElementById('mark-finished').addEventListener('click', () => {
+            if (this.folderPath) {
+                ipcRenderer.send('mark-finished', { path: this.folderPath });
+            }
+        });
+
+        ipcRenderer.on('folder-selected', (event, data) => this.handleFolderSelection(data));
+        ipcRenderer.on('folder-marked-finished', (event, newPath) => {
+            this.folderPath = newPath;
+            const selectedFolder = document.getElementById('selected-folder');
+            const heading = selectedFolder.querySelector('h3');
+            if (heading) {
+                heading.textContent = `Selected folder: ${newPath}`;
+            }
+        });
+    }
+
+    handleFolderSelection(data) {
+        this.folderPath = data.path;
+        const selectedFolder = document.getElementById('selected-folder');
+        let content = `<p>Selected folder: ${data.path}</p>`;
+        
+        if (data.jsonData && data.jsonData.length > 0) {
+            content += this.renderJsonFiles(data.jsonData);
+        } else {
+            content += '<p>No JSON files found in the selected folder.</p>';
+        }
+        
+        selectedFolder.innerHTML = content;
+        selectedFolder.style.display = 'block';
+    }
+
+    renderJsonFiles(jsonData) {
+        jsonData.forEach(file => {
+            if (file.error) {
+            } else {
+                if (file.data.steps) {
+                    this.displaySteps(file.data.steps);
+                }
+            }
+        });
+        return "";
+    }
+
+    displaySteps(steps) {
+        const stepList = document.getElementById('step-list');
+        const stepImages = document.getElementById('step-images');
+        
+        stepList.innerHTML = '';
+        stepImages.innerHTML = '';
+        
+        // Store steps data for later use
+        this.stepsData = steps;
+        
+        steps.forEach(step => {
+            this.createStepItem(step, stepList);
+            this.createStepImage(step, stepImages);
+        });
+        
+        if (steps.length > 0) {
+            this.selectStep(steps[0].step_id);
+        }
+    }
+
+    createStepItem(step, stepList) {
+        const stepItem = document.createElement('div');
+        stepItem.className = 'step-item';
+        stepItem.textContent = `Step ${step.step_id}`;
+        stepItem.addEventListener('click', () => this.selectStep(step.step_id));
+        stepList.appendChild(stepItem);
+    }
+
+    createStepImage(step, stepImages) {
+        const img = document.createElement('img');
+        img.src = `file://${this.folderPath}/step_${step.step_id}.jpg`;
+        img.id = `step-image-${step.step_id}`;
+        img.className = 'step-image';
+        img.style.width = '50%';
+        stepImages.appendChild(img);
+    }
+
+    selectStep(stepId) {
+        const stepItems = document.querySelectorAll('.step-item');
+        stepItems.forEach(item => {
+            if (item.textContent === `Step ${stepId}`) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+
+        const stepImages = document.querySelectorAll('.step-image');
+        stepImages.forEach(img => {
+            if (img.id === `step-image-${stepId}`) {
+                img.classList.add('active');
+            } else {
+                img.classList.remove('active');
+            }
+        });
+
+        // Update instruction display
+        const selectedStep = this.stepsData.find(step => step.step_id === stepId);
+        const instructionDisplay = document.getElementById('instruction-display');
+        
+        if (selectedStep && selectedStep['low-level_instruction']) {
+            instructionDisplay.textContent = selectedStep['low-level_instruction'];
+            instructionDisplay.style.display = 'block';
+            instructionDisplay.contentEditable = true;
+
+            // Add event listeners for editing states if not already added
+            if (!instructionDisplay.hasEventListener) {
+                instructionDisplay.addEventListener('input', () => {
+                    instructionDisplay.style.border = '2px solid red';
+                });
+
+                instructionDisplay.addEventListener('blur', () => {
+                    instructionDisplay.style.border = '2px solid green';
+                    // Update the instruction in the data
+                    selectedStep['low-level_instruction'] = instructionDisplay.textContent;
+                    // Send updated data to main process
+                    ipcRenderer.send('update-json', {
+                        path: this.folderPath,
+                        stepId: stepId,
+                        instruction: instructionDisplay.textContent
+                    });
+                });
+
+                instructionDisplay.hasEventListener = true;
+            }
+        } else {
+            instructionDisplay.style.display = 'none';
+        }
+    }
+}
+
+// Initialize the application when the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new DataChecker();
+});
