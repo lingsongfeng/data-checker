@@ -66,31 +66,6 @@ p {
     display: none;
 }
 
-.json-files {
-    margin-top: 15px;
-}
-
-.json-file {
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: white;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.json-file h4 {
-    margin: 0 0 10px 0;
-    color: #333;
-}
-
-.json-file pre {
-    background-color: #f8f9fa;
-    padding: 10px;
-    border-radius: 4px;
-    overflow-x: auto;
-    margin: 0;
-}
-
 .error {
     color: #dc3545;
     margin: 0;
