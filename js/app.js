@@ -18,12 +18,7 @@ class DataChecker {
 
         ipcRenderer.on('folder-selected', (event, data) => this.handleFolderSelection(data));
         ipcRenderer.on('folder-marked-finished', (event, newPath) => {
-            this.folderPath = newPath;
-            const selectedFolder = document.getElementById('selected-folder');
-            const heading = selectedFolder.querySelector('h3');
-            if (heading) {
-                heading.textContent = `Selected folder: ${newPath}`;
-            }
+            this.clearPageContent();
         });
     }
 
@@ -52,6 +47,17 @@ class DataChecker {
             }
         });
         return "";
+    }
+
+    clearPageContent() {
+        const stepList = document.getElementById('step-list');
+        const stepImages = document.getElementById('step-images');
+        const selectedFolder = document.getElementById('selected-folder');
+        const instructionDisplay = document.getElementById('instruction-display');
+        stepList.innerHTML = '';
+        stepImages.innerHTML = '';
+        selectedFolder.innerHTML = '';
+        instructionDisplay.innerHTML = '';
     }
 
     displaySteps(steps) {
