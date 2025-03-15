@@ -2,6 +2,7 @@ const { ipcRenderer } = require('electron');
 
 class DataChecker {
     constructor() {
+        this.currentSelect = null;
         this.initializeEventListeners();
     }
 
@@ -58,6 +59,8 @@ class DataChecker {
         stepImages.innerHTML = '';
         selectedFolder.innerHTML = '';
         instructionDisplay.innerHTML = '';
+
+        this.currentSelect = null;
     }
 
     displaySteps(steps) {
@@ -80,6 +83,7 @@ class DataChecker {
         }
     }
 
+    // create step item on side bar
     createStepItem(step, stepList) {
         const stepItem = document.createElement('div');
         stepItem.className = 'step-item';
@@ -97,7 +101,25 @@ class DataChecker {
         stepImages.appendChild(img);
     }
 
+    onInstructionChange() {
+        const selectedStep = this.stepsData.find(step => step.step_id === this.currentSelect);
+        const instructionDisplay = document.getElementById('instruction-display');
+
+        instructionDisplay.style.border = '2px solid green';
+
+        // Update the instruction in the data
+        selectedStep['low-level_instruction'] = instructionDisplay.textContent;
+        // Send updated data to main process
+        ipcRenderer.send('update-json', {
+            path: this.folderPath,
+            stepId: this.currentSelect,
+            instruction: instructionDisplay.textContent
+        });
+    }
+
     selectStep(stepId) {
+        console.log(stepId);
+        this.currentSelect = stepId;
         const stepItems = document.querySelectorAll('.step-item');
         stepItems.forEach(item => {
             if (item.textContent === `Step ${stepId}`) {
@@ -132,15 +154,7 @@ class DataChecker {
                 });
 
                 instructionDisplay.addEventListener('blur', () => {
-                    instructionDisplay.style.border = '2px solid green';
-                    // Update the instruction in the data
-                    selectedStep['low-level_instruction'] = instructionDisplay.textContent;
-                    // Send updated data to main process
-                    ipcRenderer.send('update-json', {
-                        path: this.folderPath,
-                        stepId: stepId,
-                        instruction: instructionDisplay.textContent
-                    });
+                    this.onInstructionChange();
                 });
 
                 instructionDisplay.hasEventListener = true;

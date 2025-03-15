@@ -61,6 +61,7 @@ ipcMain.on('mark-finished', async (event, data) => {
 
 ipcMain.on('update-json', async (event, data) => {
     try {
+        console.log(data);
         const { path: folderPath, stepId, instruction } = data;
         const files = fs.readdirSync(folderPath);
         const jsonFiles = files.filter(file => file.endsWith('.json'));
