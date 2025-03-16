@@ -16,9 +16,11 @@ npm install
 npm start
 ```
 
+## Release
+- [x] v0.0.1 初始版本。
 
 
 ## TODO
 
-- [ ] 添加 github workflow，自动编译打包 macOS 与 Windows 版本。
+- [x] 添加 github workflow，自动编译打包 macOS 与 Windows 版本。
 
