@@ -42,6 +42,7 @@ class DataChecker {
         jsonData.forEach(file => {
             if (file.error) {
             } else {
+                document.getElementById('instr').innerText = file.data.instruction;
                 if (file.data.steps) {
                     this.displaySteps(file.data.steps);
                 }
