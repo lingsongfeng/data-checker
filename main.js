@@ -61,7 +61,6 @@ ipcMain.on('mark-finished', async (event, data) => {
 
 ipcMain.on('update-json', async (event, data) => {
     try {
-        console.log(data);
         const { path: folderPath, stepId, instruction } = data;
         const files = fs.readdirSync(folderPath);
         const jsonFiles = files.filter(file => file.endsWith('.json'));
@@ -85,11 +84,30 @@ ipcMain.on('update-json', async (event, data) => {
     }
 });
 
+function countFilesInParentDir(folderPath) {
+    try {
+        const parentDir = path.dirname(folderPath);
+        const files = fs.readdirSync(parentDir);
+        const finishedFiles = files.filter(file => file.endsWith('-finished'));
+        return {
+            total: files.length,
+            finished: finishedFiles.length
+        };
+    } catch (error) {
+        console.error('Error counting files in parent directory:', error);
+        return {
+            total: 0,
+            finished: 0
+        };
+    }
+}
+
 function handleFolderSelection(folderPath) {
     try {
         const files = fs.readdirSync(folderPath);
         const jsonFiles = files.filter(file => file.endsWith('.json'));
         const jsonData = [];
+        const parentFileCount = countFilesInParentDir(folderPath);
 
         jsonFiles.forEach(file => {
             try {
@@ -109,7 +127,8 @@ function handleFolderSelection(folderPath) {
 
         mainWindow.webContents.send('folder-selected', {
             path: folderPath,
-            jsonData: jsonData
+            jsonData: jsonData,
+            parentFileCount: parentFileCount
         });
     } catch (error) {
         console.error('Error processing folder:', error);

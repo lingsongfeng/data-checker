@@ -10,9 +10,14 @@ body {
 .sidebar {
     width: 250px;
     background-color: white;
-    padding: 20px;
+    padding: 5px;
     box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
+}
+
+.sidebar h2 {
+    padding: 20px 15px;
+    margin: 0;
 }
 
 .main-content {
@@ -22,36 +27,14 @@ body {
 }
 
 .container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
-h1 {
-    color: #333;
-    margin-bottom: 20px;
-}
 
 p {
     color: #666;
     line-height: 1.6;
-}
-
-.button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
 }
 
 .button:hover {
@@ -95,7 +78,7 @@ p {
     cursor: pointer;
     padding: 10px;
     margin: 5px 0;
-    background-color: #f8f9fa;
+    /*background-color: #f8f9fa;*/
     border-radius: 4px;
     transition: background-color 0.2s;
 }

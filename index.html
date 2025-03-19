@@ -3,6 +3,21 @@
 <head>
     <title>Data Checker</title>
     <link rel="stylesheet" href="styles/main.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script type="importmap">
+      {
+        "imports": {
+          "@material/web/": "https://esm.run/@material/web/"
+        }
+      }
+    </script>
+    <script type="module">
+      import '@material/web/all.js';
+      import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+  
+      document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
 </head>
 <body>
     <div class="sidebar">
@@ -11,8 +26,16 @@
     </div>
     <div class="main-content">
         <div class="container">
-            <button id="select-folder" class="button">Select Folder</button>
-            <button id="mark-finished" class="button button-finished">Mark as Finished</button>
+            <div>
+                <md-circular-progress value="0.5" id="mark-progress"></md-circular-progress>
+                <span class="md-body-large" id="progress-text">xxxxx/xxxxx</span>
+            </div>
+            <div>
+                <md-outlined-button id="select-folder">Select Folder</md-outlined-button>
+                <md-filled-button id="mark-finished">Mark as Finished</md-filled-button>
+            </div>
+        </div>
+        <div>
             <div id="selected-folder"></div>
             <div id="instr"></div>
         </div>

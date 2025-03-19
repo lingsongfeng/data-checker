@@ -28,6 +28,12 @@ class DataChecker {
         const selectedFolder = document.getElementById('selected-folder');
         let content = `<p>Selected folder: ${data.path}</p>`;
         
+        if (data.parentFileCount) {
+            const progressRatio = data.parentFileCount.finished / data.parentFileCount.total;
+            document.getElementById('mark-progress').value = progressRatio;
+            document.getElementById('progress-text').textContent = `${data.parentFileCount.finished} / ${data.parentFileCount.total} files finished`;
+        }
+        
         if (data.jsonData && data.jsonData.length > 0) {
             content += this.renderJsonFiles(data.jsonData);
         } else {
@@ -91,6 +97,11 @@ class DataChecker {
         stepItem.textContent = `Step ${step.step_id}`;
         stepItem.addEventListener('click', () => this.selectStep(step.step_id));
         stepList.appendChild(stepItem);
+
+        // Add divider after each step item except the last one
+        const divider = document.createElement('md-divider');
+        divider.setAttribute('inset', '');
+        stepList.appendChild(divider);
     }
 
     createStepImage(step, stepImages) {
@@ -98,7 +109,7 @@ class DataChecker {
         img.src = `file://${this.folderPath}/step_${step.step_id}.jpg`;
         img.id = `step-image-${step.step_id}`;
         img.className = 'step-image';
-        img.style.width = '50%';
+        img.style.width = '40%';
         stepImages.appendChild(img);
     }
 
