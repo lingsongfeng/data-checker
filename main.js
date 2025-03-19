@@ -15,6 +15,29 @@ function createWindow() {
     });
 
     mainWindow.loadFile('index.html');
+
+    // Create a separate window for DevTools
+    let devToolsWindow = null;
+
+    // Handle F12 key press
+    mainWindow.webContents.on('before-input-event', (event, input) => {
+        if (input.key === 'F12' && !input.control && !input.meta && !input.shift && !input.alt) {
+            if (!devToolsWindow || devToolsWindow.isDestroyed()) {
+                devToolsWindow = new BrowserWindow({
+                    width: 1200,
+                    height: 600
+                });
+                mainWindow.webContents.setDevToolsWebContents(devToolsWindow.webContents);
+                mainWindow.webContents.openDevTools({ mode: 'detach' });
+                devToolsWindow.on('closed', () => {
+                    mainWindow.webContents.closeDevTools();
+                    devToolsWindow = null;
+                });
+            } else {
+                devToolsWindow.focus();
+            }
+        }
+    });
 }
 
 app.whenReady().then(createWindow);
