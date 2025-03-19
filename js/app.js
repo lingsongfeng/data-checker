@@ -57,6 +57,14 @@ class DataChecker {
         return "";
     }
 
+    enableBusyIndicatorForOneSecond() {
+        const busyIndicator = document.getElementById('busy-indicator');
+        busyIndicator.setAttribute('indeterminate', '');
+        setTimeout(() => {
+            busyIndicator.removeAttribute('indeterminate');
+        }, 500);
+    }
+
     clearPageContent() {
         const stepList = document.getElementById('step-list');
         const stepImages = document.getElementById('step-images');
@@ -114,6 +122,7 @@ class DataChecker {
     }
 
     onInstructionChange() {
+        this.enableBusyIndicatorForOneSecond();
         const selectedStep = this.stepsData.find(step => step.step_id === this.currentSelect);
         const instructionDisplay = document.getElementById('instruction-display');
 
